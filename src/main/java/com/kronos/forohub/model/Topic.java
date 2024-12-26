@@ -1,6 +1,7 @@
 package com.kronos.forohub.model;
 
 import com.kronos.forohub.dto.TopicRegister;
+import com.kronos.forohub.dto.TopicUpdate;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 
@@ -60,5 +61,21 @@ public class Topic {
 
     public String getCourse() {
         return course;
+    }
+
+    public void update(TopicUpdate topicUpdate) {
+        this.id = topicUpdate.id();
+        if(topicUpdate.idUser() != null){
+            this.author = topicUpdate.idUser();
+        }
+        if(topicUpdate.message() != null){
+            this.message = topicUpdate.message();
+        }
+        if(topicUpdate.nameCourse() != null){
+            this.course = topicUpdate.nameCourse();
+        }
+        if(topicUpdate.title() != null){
+            this.title = topicUpdate.title();
+        }
     }
 }
