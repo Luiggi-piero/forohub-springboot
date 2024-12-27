@@ -6,7 +6,7 @@
 API Rest desarrollada en Java con Spring Boot para la gestión de un foro, el proyecto permite manejar tópicos y autenticar usuarios.
 
 
-## Index
+## Índice
 
 1. [Funcionalidades](#Funcionalidades)
 2. [Requerimientos previos](#requerimientos-previos)
