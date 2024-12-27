@@ -54,6 +54,7 @@ API Rest desarrollada en Java con Spring Boot para la gestión de un foro, el pr
     * `DELETE /topics/{id}` : Borra un tópico por id
   - Reglas de negocio
     * En caso de no encontrar el tópico retornará un 404
+    * Se realizará una eliminación lógica a través de la propiedad status: 1 (activo) y 0 (inactivo)
 
 ## Requerimientos previos
 - **JDK: Java 17 o superior**
