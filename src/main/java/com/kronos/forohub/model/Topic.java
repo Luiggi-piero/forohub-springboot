@@ -78,4 +78,8 @@ public class Topic {
             this.title = topicUpdate.title();
         }
     }
+
+    public void deactivate(){
+        this.status = false;
+    }
 }

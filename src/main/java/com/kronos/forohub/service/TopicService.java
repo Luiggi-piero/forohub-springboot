@@ -11,7 +11,6 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -40,7 +39,7 @@ public class TopicService implements ITopicService {
 
     @Override
     public Page<TopicListItem> getTopics(Pageable pagination) {
-        return topicRepository.findAll(pagination).map(TopicListItem::new);
+        return topicRepository.findByStatusTrue(pagination).map(TopicListItem::new);
     }
 
     @Override
@@ -60,7 +59,7 @@ public class TopicService implements ITopicService {
 
     @Override
     public TopicListItem getTopicById(Long id) {
-        Optional<Topic> topic = topicRepository.findById(id);
+        Optional<Topic> topic = topicRepository.getTopicById(id);
         if(topic.isEmpty()){
             throw new EntityNotFoundException();
         }
@@ -72,5 +71,11 @@ public class TopicService implements ITopicService {
         Topic topic = topicRepository.getReferenceById(id);
         topic.update(topicUpdate);
         return new TopicListItem(topic);
+    }
+
+    @Override
+    public void deleteTopic(Long id) {
+        Topic topic = topicRepository.getReferenceById(id);
+        topic.deactivate();
     }
 }

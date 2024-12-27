@@ -21,4 +21,6 @@ public interface ITopicService {
     TopicListItem getTopicById(Long id);
 
     TopicListItem updateTopic(Long id, TopicUpdate topicUpdate);
+
+    void deleteTopic(Long id);
 }

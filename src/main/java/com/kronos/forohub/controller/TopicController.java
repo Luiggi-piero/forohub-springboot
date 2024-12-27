@@ -4,6 +4,7 @@ import com.kronos.forohub.dto.TopicListItem;
 import com.kronos.forohub.dto.TopicRegister;
 import com.kronos.forohub.dto.TopicResponse;
 import com.kronos.forohub.dto.TopicUpdate;
+import com.kronos.forohub.model.Topic;
 import com.kronos.forohub.service.ITopicService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -104,5 +105,12 @@ public class TopicController {
             @RequestBody @Valid TopicUpdate data
     ){
         return ResponseEntity.ok(topicService.updateTopic(id, data));
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity deleteTopic(@PathVariable Long id){
+        topicService.deleteTopic(id);
+        return ResponseEntity.noContent().build();
     }
 }

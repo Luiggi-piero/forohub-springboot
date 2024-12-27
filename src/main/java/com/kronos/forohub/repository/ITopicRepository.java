@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface ITopicRepository extends JpaRepository<Topic, Long> {
 
@@ -20,7 +22,7 @@ public interface ITopicRepository extends JpaRepository<Topic, Long> {
     @Query("""
             SELECT t 
             FROM Topic t
-            WHERE t.course ILIKE %:nameCourse% 
+            WHERE t.course ILIKE %:nameCourse% AND t.status = true
             """)
     Page<Topic> findByCourseContainsIgnoreCase(Pageable pagination, String nameCourse);
 
@@ -28,14 +30,23 @@ public interface ITopicRepository extends JpaRepository<Topic, Long> {
     @Query("""
             SELECT t
             FROM Topic t
-            WHERE YEAR(t.creationDate) = :year
+            WHERE YEAR(t.creationDate) = :year AND t.status = true
             """)
     Page<Topic> findByYear(Pageable pagination, Integer year);
 
     @Query("""
             SELECT t 
             FROM Topic t
-            WHERE t.course ILIKE %:nameCourse% AND YEAR(t.creationDate) = :year
+            WHERE t.course ILIKE %:nameCourse% AND YEAR(t.creationDate) = :year AND t.status = true
             """)
     Page<Topic> findByCourseAndYear(Pageable pagination, String nameCourse, Integer year);
+
+    Page<Topic> findByStatusTrue(Pageable pagination);
+
+    @Query("""
+            SELECT t
+            FROM Topic t
+            WHERE t.id = :id AND t.status = true
+            """)
+    Optional<Topic> getTopicById(Long id);
 }
