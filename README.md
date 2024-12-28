@@ -117,6 +117,21 @@ Arquitectura multicapas
 
 
 </br>
+
+> [!IMPORTANT]
+> * Crea un registro en la tabla `users` 
+>   * email: tom@gmail.com
+>   * password: $2a$10$qKUUOxf5v8Lq1fthdzK0suk9Xj/VIbVOPGtXrsPI/FLy9s86LLY0u
+>     
+> * En `POST /login` usa el json
+>   ```json
+>     {
+>       "email": "tom@gmail.com",
+>       "password": "123456"
+>     }
+         
+
+</br>
 <p align="center">
   <img src="https://img.shields.io/badge/java-white?style=for-the-badge&logo=openjdk&logoColor=white&labelColor=black">
   <img src="https://img.shields.io/badge/SPRINGBOOT-white?style=for-the-badge&logo=spring&logoColor=white&labelColor=%236DB33F">
