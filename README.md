@@ -12,6 +12,7 @@ API Rest desarrollada en Java con Spring Boot para la gestión de un foro, el pr
 2. [Requerimientos previos](#requerimientos-previos)
 3. [Configuración](#configuración)
 4. [Tecnologías utilizadas](#tecnologías-utilizadas)
+5. [Estructura del proyecto](#estructura-del-proyecto)
 
 
 ## Funcionalidades
@@ -57,6 +58,7 @@ API Rest desarrollada en Java con Spring Boot para la gestión de un foro, el pr
     * Se realizará una eliminación lógica a través de la propiedad status: 1 (activo) y 0 (inactivo)
 
 ## Requerimientos previos
+
 - **JDK: Java 17 o superior**
 - **Gestor de dependencias: Maven 3.9.9**
 - **Spring Boot 3.4**
@@ -91,6 +93,28 @@ API Rest desarrollada en Java con Spring Boot para la gestión de un foro, el pr
 - **Spring Security y JWT**: Autenticación segura.
 - **Flyway**: Migración y gestión de bases de datos.
 - **MySQL**: Sistema de gestión de bases de datos relacional.          
+
+
+## Estructura del proyecto
+
+Arquitectura multicapas
+
+      src
+      ├── main
+      │   ├── java/com/kronos/forohub
+      │   │   ├── controller   -> REST controllers.
+      │   │   ├── dto          -> Data transfer object layer.
+      │   │   ├── model        -> Domain feature layer.
+      │   │   ├── repository   -> Data persistence layer.
+      │   │   ├── service      -> Business logic layer.
+      │   │   ├── infra        -> Error handlers, security and docs.
+      │   │   ├── validations  -> Custom validations.
+      │   └── resources
+      │       ├── application.properties -> Configuration app.
+      │       └── db.migration.sql       -> Scripts SQL and migration with flyway.
+      └── test
+          └── java/com/kronos/forohub    -> Units Test and Integration. 
+
 
 </br>
 <p align="center">
