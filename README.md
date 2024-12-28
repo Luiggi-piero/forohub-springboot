@@ -32,8 +32,8 @@ API Rest desarrollada en Java con Spring Boot para la gestión de un foro, el pr
     * `GET /topics?sort=creationDate` : Muestra todos los tópicos
     * `GET /topics/searchByCourseOrYear?year={year}&nameCourse={nameCourse}&sort=creationDate`: Buscar por curso o año
   - Reglas de negocio
-    * Mostrar los primeros 10 resultados ordenados por fecha de creación del tópico en orden ASC
-    * Mostrar los resultados usando un criterio de búsqueda: nombre del curso o un año determinado
+    * Retornar los primeros 10 resultados ordenados por fecha de creación del tópico en orden ASC
+    * Devolver los resultados usando un criterio de búsqueda: nombre del curso o un año determinado
     * Obtener la respuesta con paginación para controlar el volumen de los datos
 
 - [x] Leer el tópico por id
